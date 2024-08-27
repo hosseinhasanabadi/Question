@@ -1,6 +1,8 @@
 package com.example.question.di
 
 import com.example.question.network.QuestionApi
+import com.example.question.repository.QuestionRepository
+
 import com.example.question.util.Constants
 import dagger.Module
 import dagger.Provides
@@ -16,7 +18,15 @@ import javax.inject.Singleton
 object AppModule {
     @Singleton
     @Provides
-    fun provideQuestion():QuestionApi{
+
+    fun provideQuestion(api: QuestionApi)= QuestionRepository(api)
+
+    fun provideQuestionRepository(api: QuestionApi)= QuestionRepository(api)
+
+    @Singleton
+    @Provides
+    fun provideQuestionApi():QuestionApi{
+
         return  Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
