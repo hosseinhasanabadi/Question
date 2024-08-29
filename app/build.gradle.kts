@@ -1,8 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+   // id("kotlin-kapt")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+   // id ("androidx.compose")
 }
 
 android {
@@ -75,24 +77,53 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
 
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
 
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.compiler)
 
     //hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    implementation( libs.dagger.hilt.android.v244)
+    kapt (libs.dagger.hilt.android.compiler.v244)
+    implementation(libs.google.hilt.android.v244)
+    kapt(libs.google.hilt.android.compiler.v244)
+    implementation  (libs.androidx.lifecycle.viewmodel.ktx.v251)// نسخه را به روز کنید
+    kapt  (libs.androidx.lifecycle.compiler)
+
+   // implementation("androidx.navigation:navigation-compose:2.7.7")
+ //   implementation(libs.androidx.navigation.compose)
+
+
+
+    // For ViewModel injection
+
+   // implementation  (libs.androidx.hilt.lifecycle.viewmodel.v100alpha03)
+   // kapt (libs.androidx.hilt.hilt.compiler.v100)
+
+    // برای کار با Hilt در کلاس‌های Compose
+    implementation (libs.androidx.hilt.navigation.compose.v100)
+
+    // Optional - برای کار با Fragment ها
+    //implementation ("androidx.fragment:fragment-ktx:1.6.1")
 
     //retrofit
-    implementation (libs.retrofit)
-    //GSON
-    implementation (libs.converter.gson)
+implementation(libs.retrofit.v290)
+   // implementation (libs.retrofit)
 
+   
+    //GSON
+implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+   // implementation (libs.converter.gson)
 
 
 
 }
+
 // Allow references to generated code
+//kapt {
+  ///  correctErrorTypes = true
+//}
+
 kapt {
-    correctErrorTypes = true
+correctErrorTypes = true
 }

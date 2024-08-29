@@ -1,4 +1,4 @@
-package com.example.question.screens
+package com.example.question.screen
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -15,7 +15,7 @@ import javax.inject.Inject
 class QuestionViewModel @Inject constructor(
     private val repository: QuestionRepository
 ): ViewModel() {
-    private val data :MutableState<DataOrException<ArrayList<QuestionItem>
+    val data :MutableState<DataOrException<ArrayList<QuestionItem>
             ,Boolean,Exception>> = mutableStateOf(
         DataOrException(null,true,Exception("")))
     init {
