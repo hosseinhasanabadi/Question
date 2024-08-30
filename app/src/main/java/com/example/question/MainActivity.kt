@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.question.screen.QuestionViewModel
+import com.example.question.screen.TriviaHome
 import com.example.question.ui.theme.QuestionTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,22 +35,7 @@ class MainActivity : ComponentActivity() {
 }
 
 
-@Composable
-fun TriviaHome(viewModel: QuestionViewModel = hiltViewModel()){
-    Questions(viewModel)
 
-}
-
-
-
-@SuppressLint("SuspiciousIndentation")
-@Composable
-fun Questions(viewModel: QuestionViewModel) {
-
-  val question = viewModel.data.value.data?.toMutableList()
-    Log.d("SIZE","Question:${question?.size}")
-
-}
 
 
 @Preview(showBackground = true)

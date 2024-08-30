@@ -89,27 +89,14 @@ dependencies {
     implementation  (libs.androidx.lifecycle.viewmodel.ktx.v251)// نسخه را به روز کنید
     kapt  (libs.androidx.lifecycle.compiler)
 
-   // implementation("androidx.navigation:navigation-compose:2.7.7")
- //   implementation(libs.androidx.navigation.compose)
-
-
-
-    // For ViewModel injection
-
-   // implementation  (libs.androidx.hilt.lifecycle.viewmodel.v100alpha03)
-   // kapt (libs.androidx.hilt.hilt.compiler.v100)
-
-    // برای کار با Hilt در کلاس‌های Compose
+    // برای کار با Hilt در کلاس‌های
+  //  implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
     implementation (libs.androidx.hilt.navigation.compose.v100)
 
-    // Optional - برای کار با Fragment ها
-    //implementation ("androidx.fragment:fragment-ktx:1.6.1")
 
     //retrofit
 implementation(libs.retrofit.v290)
    // implementation (libs.retrofit)
-
-   
     //GSON
 implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
